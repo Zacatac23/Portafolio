@@ -18,13 +18,10 @@ export const portfolioData = {
   skills: {
     frontend: [
       'HTML5', 
-      'CSS3', 
+      'CSS', 
       'JavaScript ES6+', 
       'React', 
-      'Vue.js', 
-      'Tailwind CSS',
       'TypeScript',
-      'Sass/SCSS',
       'Jetpack Compose'
     ],
     backend: [
@@ -36,7 +33,7 @@ export const portfolioData = {
       'MongoDB',
       'MySQL',
       'REST APIs',
-      'C'
+      'C++'
     ],
     tools: [
       'Git', 
@@ -56,7 +53,6 @@ export const portfolioData = {
       'Kubernetes',
       'React Native',
       'Three.js',
-      'Kotlin',
       'Flutter'
     ]
   },
