@@ -9,7 +9,7 @@ export const portfolioData = {
     trophies: 3247,
     description: "Apasionado desarrollador con enfoque en crear experiencias intuitivas y dinámicas, desde apps móviles con Jetpack Compose hasta simulaciones físicas en C y proyectos interactivos en HTML. Me impulsa la curiosidad por combinar tecnología, ciencia y diseño para resolver problemas de forma creativa y precisa.",
     email: "jonathanzacaeias@gmail.com",
-    linkedin: "linkedin.com/in/jonathan-zacarias",
+    linkedin: "linkedin.com/in/jonathan-josue-zacarias-bances",
     github: "github.com/zacatac23",
     phone: "+502 1234-5678", // Actualiza con tu número real
     location: "Guatemala City, Guatemala" // Actualiza si es diferente
