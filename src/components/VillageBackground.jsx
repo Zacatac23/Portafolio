@@ -89,12 +89,7 @@ const VillageBackground = () => {
 
         {/* Flores y hierba decorativa */}
         {[
-          { x: '30%', y: '35%', emoji: '🌸', delay: '0s' },
-          { x: '70%', y: '60%', emoji: '🌼', delay: '1s' },
-          { x: '40%', y: '80%', emoji: '🌺', delay: '2s' },
-          { x: '60%', y: '25%', emoji: '🌻', delay: '1.5s' },
-          { x: '25%', y: '60%', emoji: '🌿', delay: '0.5s' },
-          { x: '75%', y: '40%', emoji: '🍀', delay: '2.5s' }
+          
         ].map((flower, index) => (
           <div
             key={`flower-${index}`}
