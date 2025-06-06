@@ -1,0 +1,725 @@
+/* src/styles/components.css */
+
+/* ========== BOTONES ========== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border: none;
+  border-radius: var(--radius-xl);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--gradient-gold);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #FFA500, #FF8C00);
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  background: var(--gradient-purple);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #A855F7, #9333EA);
+  transform: scale(1.05);
+}
+
+.btn-success {
+  background: var(--gradient-green);
+  color: white;
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: scale(1.05);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #EF4444, #DC2626);
+  color: white;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #DC2626, #B91C1C);
+  transform: scale(1.05);
+}
+
+/* Efecto de brillo en botones */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+/* ========== TARJETAS ========== */
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-lg);
+  border: 2px solid transparent;
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--clash-gold);
+}
+
+.card-clash {
+  background: linear-gradient(145deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1));
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.card-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ========== MODALES ========== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: var(--space-4);
+}
+
+.modal-content {
+  background: linear-gradient(145deg, #FFF8DC, #FFEAA7);
+  border-radius: var(--radius-2xl);
+  max-width: 64rem;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 4px solid var(--clash-gold);
+  box-shadow: var(--shadow-2xl);
+  animation: zoomIn 0.3s ease-out;
+}
+
+.modal-header {
+  background: var(--gradient-gold);
+  padding: var(--space-4);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: white;
+}
+
+.modal-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-body {
+  padding: var(--space-6);
+}
+
+/* ========== FORMULARIOS ========== */
+.form-group {
+  margin-bottom: var(--space-4);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+  color: white;
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: var(--font-size-base);
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(10px);
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--clash-gold);
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.3);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* ========== PANTALLA DE CARGA ========== */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #1F2937, #6B46C1, #000000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.loading-content {
+  text-align: center;
+  color: white;
+}
+
+.loading-icon {
+  font-size: 5rem;
+  margin-bottom: var(--space-4);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.loading-title {
+  font-size: var(--font-size-4xl);
+  font-weight: bold;
+  color: var(--clash-gold);
+  margin-bottom: var(--space-2);
+}
+
+.loading-subtitle {
+  font-size: var(--font-size-xl);
+  color: rgba(255, 215, 0, 0.8);
+  margin-bottom: var(--space-8);
+}
+
+.loading-bar {
+  width: 320px;
+  margin: 0 auto;
+}
+
+.loading-bar-track {
+  background: #374151;
+  border-radius: var(--radius-full);
+  height: 24px;
+  border: 2px solid var(--clash-gold);
+  overflow: hidden;
+}
+
+.loading-bar-fill {
+  height: 100%;
+  background: var(--gradient-gold);
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: var(--space-2);
+}
+
+.loading-percentage {
+  font-size: var(--font-size-xs);
+  font-weight: bold;
+  color: white;
+}
+
+.loading-status {
+  margin-top: var(--space-4);
+  color: rgba(255, 215, 0, 0.9);
+  font-size: var(--font-size-sm);
+}
+
+/* ================================================ */
+/* 🏰 ESTILOS AUTÉNTICOS CLASH OF CLANS - INICIO */  
+/* ================================================ */
+
+/* ========== COLORES AUTÉNTICOS CLASH ========== */
+:root {
+  /* Colores originales de Clash */
+  --clash-grass-light: #7CB342;
+  --clash-grass-medium: #689F38; 
+  --clash-grass-dark: #558B2F;
+  --clash-stone: #8D6E63;
+  --clash-wood: #8D6E63;
+  --clash-gold-light: #FFD54F;
+  --clash-gold-medium: #FFC107;
+  --clash-gold-dark: #FF8F00;
+  --clash-gem: #E91E63;
+  --clash-blue: #2196F3;
+  --clash-purple: #673AB7;
+  --clash-shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* ========== FONDO AUTÉNTICO DE ALDEA ========== */
+.clash-village-background {
+  background: 
+    /* Césped con variaciones */
+    radial-gradient(circle at 20% 30%, var(--clash-grass-light) 8px, transparent 8px),
+    radial-gradient(circle at 80% 70%, var(--clash-grass-medium) 6px, transparent 6px),
+    radial-gradient(circle at 40% 80%, var(--clash-grass-light) 4px, transparent 4px),
+    radial-gradient(circle at 60% 20%, var(--clash-grass-dark) 5px, transparent 5px),
+    /* Base de césped */
+    linear-gradient(135deg, var(--clash-grass-medium), var(--clash-grass-dark));
+  background-size: 80px 80px, 120px 120px, 60px 60px, 100px 100px, 100% 100%;
+  animation: grassWave 20s ease-in-out infinite;
+}
+
+@keyframes grassWave {
+  0%, 100% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
+  50% { background-position: 20px 20px, -20px -20px, 10px 10px, -10px -10px, 0% 0%; }
+}
+
+/* ========== EDIFICIOS ESTILO CLASH ========== */
+.clash-building {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(4px 6px 8px var(--clash-shadow));
+}
+
+.clash-building:hover {
+  transform: scale(1.1) translateY(-5px);
+  filter: drop-shadow(6px 10px 12px var(--clash-shadow));
+}
+
+/* Town Hall auténtico */
+.clash-townhall {
+  width: 100px;
+  height: 90px;
+  background: 
+    linear-gradient(45deg, #8D6E63 0%, #A1887F  50%, #8D6E63 100%);
+  border-radius: 8px 8px 25px 25px;
+  border: 3px solid #5D4037;
+  position: relative;
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+    0 8px 16px var(--clash-shadow);
+}
+
+.clash-townhall::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 30px;
+  background: linear-gradient(45deg, #D84315, #FF5722);
+  border-radius: 15px 15px 5px 5px;
+  border: 2px solid #BF360C;
+}
+
+.clash-townhall::after {
+  content: '🏛️';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  z-index: 2;
+}
+
+/* Laboratory auténtico */
+.clash-laboratory {
+  width: 85px;
+  height: 95px;
+  background: 
+    linear-gradient(135deg, #4A148C 0%, #6A1B9A 50%, #4A148C 100%);
+  border-radius: 12px;
+  border: 3px solid #2E0854;
+  position: relative;
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    0 8px 16px var(--clash-shadow);
+}
+
+.clash-laboratory::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: #E91E63;
+  border-radius: 50%;
+  border: 2px solid #AD1457;
+  box-shadow: 0 0 10px #E91E63;
+  animation: labGlow 2s ease-in-out infinite;
+}
+
+@keyframes labGlow {
+  0%, 100% { box-shadow: 0 0 10px #E91E63; }
+  50% { box-shadow: 0 0 20px #E91E63, 0 0 30px #E91E63; }
+}
+
+.clash-laboratory::after {
+  content: '🧪';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.2rem;
+  z-index: 2;
+}
+
+/* Barracks auténtico */
+.clash-barracks {
+  width: 95px;
+  height: 85px;
+  background: 
+    linear-gradient(135deg, #BF360C 0%, #D84315 50%, #BF360C 100%);
+  border-radius: 8px;
+  border: 3px solid #8D2F00;
+  position: relative;
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+    0 8px 16px var(--clash-shadow);
+}
+
+.clash-barracks::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 20%;
+  width: 15px;
+  height: 25px;
+  background: linear-gradient(45deg, #795548, #8D6E63);
+  border-radius: 2px;
+  border: 1px solid #5D4037;
+}
+
+.clash-barracks::after {
+  content: '⚔️';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.3rem;
+  z-index: 2;
+}
+
+/* Castle auténtico */
+.clash-castle {
+  width: 110px;
+  height: 100px;
+  background: 
+    linear-gradient(135deg, #546E7A 0%, #607D8B 50%, #546E7A 100%);
+  border-radius: 8px 8px 4px 4px;
+  border: 3px solid #37474F;
+  position: relative;
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+    0 10px 20px var(--clash-shadow);
+}
+
+.clash-castle::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 10%;
+  width: 80%;
+  height: 25px;
+  background: 
+    linear-gradient(90deg, 
+      transparent 0%, 
+      #37474F 10%, 
+      #607D8B 20%, 
+      #37474F 30%,
+      transparent 40%,
+      #37474F 50%,
+      #607D8B 60%,
+      #37474F 70%,
+      transparent 80%,
+      #37474F 90%,
+      transparent 100%
+    );
+  border-radius: 2px;
+}
+
+.clash-castle::after {
+  content: '🏰';
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.8rem;
+  z-index: 2;
+}
+
+/* Wizard Tower auténtico */
+.clash-wizardtower {
+  width: 75px;
+  height: 110px;
+  background: 
+    linear-gradient(135deg, #4A148C 0%, #7B1FA2 50%, #4A148C 100%);
+  border-radius: 50% 50% 8px 8px;
+  border: 3px solid #2E0854;
+  position: relative;
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    0 8px 16px var(--clash-shadow);
+}
+
+.clash-wizardtower::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25px;
+  height: 25px;
+  background: 
+    radial-gradient(circle, #E91E63 30%, #AD1457 70%);
+  border-radius: 50%;
+  border: 2px solid #880E4F;
+  animation: wizardOrb 3s ease-in-out infinite;
+}
+
+@keyframes wizardOrb {
+  0%, 100% { 
+    transform: translateX(-50%) translateY(0px);
+    box-shadow: 0 0 15px #E91E63;
+  }
+  50% { 
+    transform: translateX(-50%) translateY(-5px);
+    box-shadow: 0 0 25px #E91E63, 0 0 35px #AD1457;
+  }
+}
+
+.clash-wizardtower::after {
+  content: '🔮';
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  z-index: 2;
+}
+
+/* ========== NIVELES DE EDIFICIOS ESTILO CLASH ========== */
+.clash-level-badge {
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  width: 28px;
+  height: 28px;
+  background: 
+    radial-gradient(circle, var(--clash-gold-light), var(--clash-gold-dark));
+  border: 2px solid #E65100;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: #1A237E;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 2px 4px var(--clash-shadow),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  animation: levelShine 4s ease-in-out infinite;
+}
+
+@keyframes levelShine {
+  0%, 100% { box-shadow: 0 2px 4px var(--clash-shadow), inset 0 1px 2px rgba(255, 255, 255, 0.5); }
+  50% { box-shadow: 0 2px 8px var(--clash-gold-medium), inset 0 1px 4px rgba(255, 255, 255, 0.8); }
+}
+
+/* ========== RECURSOS ESTILO CLASH ========== */
+.clash-resource {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: 
+    linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 2px solid var(--clash-gold-medium);
+  backdrop-filter: blur(4px);
+  box-shadow: 
+    0 4px 8px var(--clash-shadow),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.clash-resource-icon {
+  font-size: 1.2rem;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+.clash-resource-count {
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* ========== DECORACIONES DE ALDEA ========== */
+.clash-decoration {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(2px 2px 4px var(--clash-shadow));
+  animation: gentleBob 6s ease-in-out infinite;
+}
+
+@keyframes gentleBob {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+/* Árboles estilo Clash */
+.clash-tree {
+  font-size: 2.5rem;
+  animation: treeWave 8s ease-in-out infinite;
+}
+
+@keyframes treeWave {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(1deg) scale(1.02); }
+  75% { transform: rotate(-1deg) scale(0.98); }
+}
+
+/* ========== EFECTOS DE PARTÍCULAS CLASH ========== */
+.clash-sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--clash-gold-light);
+  border-radius: 50%;
+  animation: clashSparkle 2s ease-in-out infinite;
+}
+
+@keyframes clashSparkle {
+  0%, 100% { 
+    opacity: 0;
+    transform: scale(0.5) rotate(0deg);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.5) rotate(180deg);
+  }
+}
+
+/* ========== UI ELEMENTOS ESTILO CLASH ========== */
+.clash-button {
+  background: 
+    linear-gradient(135deg, var(--clash-gold-light) 0%, var(--clash-gold-medium) 50%, var(--clash-gold-dark) 100%);
+  border: 3px solid #E65100;
+  border-radius: 12px;
+  color: #1A237E;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 4px 8px var(--clash-shadow),
+    inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.clash-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    0 6px 12px var(--clash-shadow),
+    inset 0 2px 6px rgba(255, 255, 255, 0.6);
+}
+
+.clash-button:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+.clash-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: rotate(45deg);
+  animation: clashButtonShine 3s ease-in-out infinite;
+}
+
+@keyframes clashButtonShine {
+  0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+/* ========== RESPONSIVE CLASH ========== */
+@media (max-width: 768px) {
+  .clash-townhall,
+  .clash-laboratory,
+  .clash-barracks,
+  .clash-castle,
+  .clash-wizardtower {
+    transform: scale(0.8);
+  }
+  
+  .clash-level-badge {
+    width: 24px;
+    height: 24px;
+    font-size: 0.7rem;
+  }
+}
+
+/* ================================================ */
+/* 🏰 ESTILOS AUTÉNTICOS CLASH OF CLANS - FIN */
+/* ================================================ */

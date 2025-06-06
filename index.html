@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="TU_URL_DE_IMAGEN_AQUI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portafolio profesional con temática Clash of Clans - Desarrollador Full Stack" />
+    <meta name="keywords" content="desarrollador, portfolio, react, javascript, clash of clans, web developer" />
+    <meta name="author" content="Tu Nombre" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tu-portfolio.vercel.app/" />
+    <meta property="og:title" content="Portafolio Clash Style - Desarrollador Full Stack" />
+    <meta property="og:description" content="¡Explora mi aldea de desarrollo! Portafolio interactivo con temática Clash of Clans" />
+    <meta property="og:image" content="/clash-portfolio-preview.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://tu-portfolio.vercel.app/" />
+    <meta property="twitter:title" content="Portafolio Clash Style - Desarrollador Full Stack" />
+    <meta property="twitter:description" content="¡Explora mi aldea de desarrollo! Portafolio interactivo con temática Clash of Clans" />
+    <meta property="twitter:image" content="/clash-portfolio-preview.png" />
+
+    <!-- Preconnect para mejorar performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <title>🏰 Portafolio Clash Style - Tu Nombre</title>
+    
+    <style>
+      /* Prevent flash of unstyled content */
+      html {
+        visibility: hidden;
+        opacity: 0;
+      }
+      
+      /* Loading animation inicial */
+      .initial-loader {
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(135deg, #000000, #000000, #000000);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        color: white;
+        font-family: 'Inter', sans-serif;
+      }
+      
+      .initial-loader .castle {
+        width: 80px;
+        height: 80px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        animation: initialBounce 1s ease-in-out infinite;
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+        margin: 0 auto;
+        border-radius: 0;
+        /* La imagen se cargará vía JavaScript */
+      }
+      
+      /* Fallback si la imagen no carga */
+      .initial-loader .castle-fallback {
+        font-size: 4rem;
+        animation: initialBounce 1s ease-in-out infinite;
+        display: none;
+        text-align: center;
+        margin: 0 auto;
+      }
+      
+      @keyframes initialBounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading inicial -->
+    <div class="initial-loader">
+      <div style="text-align: center;">
+        <div class="castle"></div>
+        <div class="castle-fallback">🏰</div>
+        <p style="text-align: center; margin-top: 1rem; color: #FFD700;"></p>
+      </div>
+    </div>
+    
+    <div id="root"></div>
+    
+    <script>
+      // Tu imagen base64
+      const base64Image = 'data:image/png;base64,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';
+      
+      // MÚSICA PARA EL INDEX
+      let indexMusic = null;
+      let musicPlaying = false;
+      let musicInitialized = false;
+      
+      function initIndexMusic() {
+        if (!musicInitialized) {
+          indexMusic = new Audio('/audio/index-music.mp3');
+          indexMusic.volume = 0.3;
+          indexMusic.loop = false;
+          musicInitialized = true;
+        }
+      }
+      
+      function playIndexMusic() {
+        if (!musicPlaying && indexMusic) {
+          musicPlaying = true;
+          
+          indexMusic.play().then(() => {
+            console.log('Música del index iniciada');
+          }).catch(error => {
+            console.warn('No se pudo reproducir música del index:', error);
+            musicPlaying = false;
+          });
+          
+          // Cuando termine la música, marcar como no reproduciendo
+          indexMusic.onended = () => {
+            musicPlaying = false;
+            console.log('Música del index terminada');
+          };
+        }
+      }
+      
+      function stopIndexMusic() {
+        if (indexMusic && musicPlaying) {
+          indexMusic.pause();
+          indexMusic.currentTime = 0;
+          musicPlaying = false;
+          console.log('Música del index detenida');
+        }
+      }
+
+      // Aplicar la imagen al cargar la página
+      window.addEventListener('DOMContentLoaded', () => {
+        const castleDiv = document.querySelector('.castle');
+        const fallbackDiv = document.querySelector('.castle-fallback');
+        
+        // INICIAR MÚSICA INMEDIATAMENTE al cargar la página
+        playIndexMusic();
+        
+        try {
+          // Aplicar la imagen base64 directamente
+          castleDiv.style.backgroundImage = `url('${base64Image}')`;
+          castleDiv.style.display = 'block';
+          
+          // Verificar si la imagen es válida creando un elemento img temporal
+          const testImg = new Image();
+          testImg.onload = function() {
+            // La imagen cargó correctamente
+            castleDiv.style.display = 'block';
+            fallbackDiv.style.display = 'none';
+          };
+          testImg.onerror = function() {
+            // La imagen no cargó, mostrar fallback
+            castleDiv.style.display = 'none';
+            fallbackDiv.style.display = 'block';
+          };
+          testImg.src = base64Image;
+          
+        } catch (error) {
+          // Error al cargar la imagen, usar fallback
+          castleDiv.style.display = 'none';
+          fallbackDiv.style.display = 'block';
+        }
+        
+        setTimeout(() => {
+          document.documentElement.style.visibility = 'visible';
+          document.documentElement.style.opacity = '1';
+          // Ocultar loader inicial después de que React se monte
+          setTimeout(() => {
+            const loader = document.querySelector('.initial-loader');
+            if (loader) {
+              loader.style.opacity = '0';
+              loader.style.transition = 'opacity 0.5s ease';
+              setTimeout(() => {
+                loader.remove();
+                // Detener música del index cuando termine la carga
+                stopIndexMusic();
+              }, 500);
+            }
+          }, 1500); // Aumentado de 1000ms a 1500ms (más duración)
+        }, 100);
+      });
+    </script>
+    
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
