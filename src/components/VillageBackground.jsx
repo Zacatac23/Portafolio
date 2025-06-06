@@ -35,12 +35,7 @@ const VillageBackground = () => {
       }}>
         {/* Árboles decorativos */}
         {[
-          { x: '8%', y: '25%', size: 'small', emoji: '🌲' },
-          { x: '92%', y: '30%', size: 'medium', emoji: '🌳' },
-          { x: '5%', y: '80%', size: 'large', emoji: '🌲' },
-          { x: '95%', y: '85%', size: 'small', emoji: '🌳' },
-          { x: '15%', y: '15%', size: 'medium', emoji: '🌲' },
-          { x: '85%', y: '20%', size: 'small', emoji: '🌿' }
+
         ].map((tree, index) => (
           <div
             key={`tree-${index}`}
@@ -61,12 +56,6 @@ const VillageBackground = () => {
 
         {/* Rocas y elementos naturales */}
         {[
-          { x: '12%', y: '75%', emoji: '🪨', size: 'medium' },
-          { x: '88%', y: '15%', emoji: '⛰️', size: 'large' },
-          { x: '20%', y: '90%', emoji: '🪨', size: 'small' },
-          { x: '80%', y: '95%', emoji: '🗿', size: 'medium' },
-          { x: '25%', y: '20%', emoji: '🏔️', size: 'small' },
-          { x: '75%', y: '10%', emoji: '🪨', size: 'small' }
         ].map((rock, index) => (
           <div
             key={`rock-${index}`}
@@ -127,58 +116,11 @@ const VillageBackground = () => {
               opacity: 0.4
             }}
           >
-            ☁️
+            
           </div>
         ))}
       </div>
 
-      {/* Animaciones CSS */}
-      <style>{`
-        @keyframes treeFloat {
-          0%, 100% { 
-            transform: translate(-50%, -50%) translateY(0px) rotate(0deg); 
-          }
-          50% { 
-            transform: translate(-50%, -50%) translateY(-10px) rotate(2deg); 
-          }
-        }
-
-        @keyframes rockBob {
-          0%, 100% { 
-            transform: translate(-50%, -50%) translateY(0px); 
-          }
-          50% { 
-            transform: translate(-50%, -50%) translateY(-6px); 
-          }
-        }
-
-        @keyframes flowerSway {
-          0%, 100% { 
-            transform: translate(-50%, -50%) rotate(-3deg) scale(1); 
-          }
-          25% { 
-            transform: translate(-50%, -50%) rotate(3deg) scale(1.05); 
-          }
-          50% { 
-            transform: translate(-50%, -50%) rotate(-2deg) scale(1); 
-          }
-          75% { 
-            transform: translate(-50%, -50%) rotate(2deg) scale(1.05); 
-          }
-        }
-
-        @keyframes cloudFloat {
-          0% { 
-            transform: translate(-50%, -50%) translateX(-20px); 
-          }
-          50% { 
-            transform: translate(-50%, -50%) translateX(20px); 
-          }
-          100% { 
-            transform: translate(-50%, -50%) translateX(-20px); 
-          }
-        }
-      `}</style>
     </div>
   );
 };
