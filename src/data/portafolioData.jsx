@@ -3,7 +3,7 @@
 export const portfolioData = {
   player: {
     name: "Jonathan Josue Zacarias Bances",
-    title: "Desarrollador Full Stack",
+    title: "Estudiante de Ingeniería en Ciencias de Computacion",
     level: 85,
     clan: "DevWarriors",
     trophies: 3247,
